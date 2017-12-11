@@ -2,10 +2,11 @@ module Main (main) where
 
 import Prelude
 import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE, log)
+import Halogen.Aff as HA
+import Halogen.VDom.Driver (runUI)
+import App (app)
 
-greet :: String -> String
-greet name = "Hello, " <> name <> "!"
-
-main :: Eff (console :: CONSOLE) Unit
-main = log (greet "World")
+main :: Eff (HA.HalogenEffects ()) Unit
+main = HA.runHalogenAff do
+  body <- HA.awaitBody
+  runUI app unit body
