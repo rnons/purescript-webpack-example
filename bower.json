@@ -11,5 +11,8 @@
   "dependencies": {
     "purescript-console": "^3.0.0",
     "purescript-halogen": "^3.0.1"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^3.0.0"
   }
 }
